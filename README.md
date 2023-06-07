@@ -48,40 +48,52 @@ From the above correlation Matrix, it’s found that dependent variable “Price
 
 The above heat map, the average sales price for houses is high near to the Seattle region of Washington D.C which also the largest city in Washington D.C.
 
-5. DATA PREPARATION
+# DATA PREPARATION
 As part of data preparation, we performed data quality checks, cleaned the dataset, and transformed the data and various treatments were performed on the dataset to prepare the dataset for modelling.
-5.1 Null Value Detection
+1. Null Value Detection
 When we checked for null values using python, we found that the dataset does not contain any null values. 
-5.2 Data Transformation 
+2. Data Transformation 
 Because of quality concerns, capitalization and removal of excess white spaces were performed. We also created a new column named ‘city’ to map city names from another dataset based on zip codes.
-5.3 Outlier Treatment 
+3. Outlier Treatment 
 One of the main issues we faced with the dataset, was to identify outliers and this had to be conducted for each individual feature. From the treatment, we received the following insights:
 	The datapoint with 33 bedrooms is an outlier because it has a square lot area of 6,000 only and has only 1.75 bathrooms and square feet living area is less, which makes it practically impossible and thus can be considered as an entry mistake.
 	The data point with the square feet lot area of 1,651,359 has been removed from the dataset because square feet lot area is extremely large in comparison to square feet living and square feet lot15, when compared to data related to houses in that neighborhood which have lot sizes of 420,000 only.
 	Data points for house prices above 6 million where not outliers as prices can be high due to good grade and high no. of bedrooms and bathrooms but are not good for our model as most of the data points in our dataset have houses with the price ranging between 2-3 million due to which including data points where price is more than 6 million can adversely affect the model performance. Hence, we will consider the data points near the average sales price for an effective model. In future, after collecting more data around high valued houses, we can create a different model that will account for expenses houses as well.
-5.4 Dropped Irrelevant Columns 
+4. Dropped Irrelevant Columns 
 We dropped ID, City, Zipcode, Date and Yr_renovated features from the dataset as they were not making any significant impact on our target variable i.e., Price. City and Zipcode were dropped as they were similar and had commonalities with Latitude and Longitude features. Yr_renovated was dropped as it had many data points as 0 which indicated that the houses were not renovated.
 
-6. DATA ANALYSIS SOLUTION
+# DATA ANALYSIS SOLUTION
 For our data analysis solution for predicting the house sale prices, we created two models, out of which one was tree based and the other one was linear regression model. We split the data into training set (80%), and test set (20%). Training set will be used to fit the model, and test set will be used to evaluate the model and measure the performance of the models.
-6.1 Elastic Net Regression Model
+1. Elastic Net Regression Model
 We scaled the data using standard scaler from scikit learn to ensure all features are on the same scale. We performed Hyper Parameter tuning using Grid Search and cross validation on training set and encoded the categorical features into a variable. Then we found l1 and alpha. After cross-validation on the training set, we observed that the model is performing the best when alpha is 0.01 and l1 is 1.0. Our model’s performance is decent on the trained set with Adj. R2 of 0.72. For this model, we are getting 0.72 R2 score and RMSE as 190,964.05 and MAE as  121,186.82.
 
-6.2 Hist-Gradient Boosting Model
+![Work Flow](Images/Picture6.png)
+
+2. Hist-Gradient Boosting Model
 We first attempted to create a model with all features included and the R2 score on test set was found to be 0.90 and RMSE was found to be 117072.96 and MAE was 68814.86.  But, when we checked feature importance, we found that the features bedrooms, floors, and sq. ft are least important features in dataset and thus we optimised the model by dropping these features. to see that the R2 score is still 0.90 but the RMSE and MAE values got reduced to 115462.16 and MAE to be 67982.64.				
 We performed Hyper parameter tuning and cross validation on the training set and observed that the model is performing at its best when l2 is 0.8. We checked for the residual errors and found that model is over-predicting the prices of cheap houses and under-predicting prices of expensive houses. This can be resolved by adding more data points from the high and low ranges and adding more informative features, such as prices of the houses in the neighbourhood, income of neighbourhood, etc.
 
+![Work Flow](Images/Picture7.png)
 
-6.3 Model Comparison
+3. Model Comparison
+
+![Work Flow](Images/Picture8.png)
 
 Hist-Gradient Boosting Model is having better R2 score with about 0.90 than Elastic Net with R2 0.73.
 
+![Work Flow](Images/Picture9.png)
+
 According to Hist-Gradient Boosting Model - Latitude, Longitude, Sqft_living, Grade are the most important features affecting the sales price of the houses. According to Elastic Net Model - Lat, Grade, Sqft_living, Sqft Above are the most important features affecting the sales price of the houses.
-6.4 Output Comparison
+
+# Output Comparison
+
+![Work Flow](Images/Picture10.png)
+
 The R2 score, RMSE and MAE is clearly better for Hist-Gradient Boosting Model than Elastic Net. For Elastic Net model, we need to did data pre-processing to achieve these results, but Hist-Gradient Boosting Model required minimal pre-processing and gave much better results with minimal work. In addition, Hist-Gradient Model is not overfitting because the test set performance is consistent with training set performance. Hence, Hist-Gradient Boosting model is much more effective than Elastic Net with R2 of 0.90 which shows that it’s excellent in predicting the sales prices of houses.
-7. CONCLUSION
+
+# CONCLUSION
 To conclude, Hist-Gradient Boosting model is far better than Elastic Net Model and should be used for our platform where customers can receive reliable and accurate predictions of the sales prices of their properties by inputting the required feature information. This is because Hist-Gradient Boosting requires minimal pre-processing and gives much better results and is also not overfitting as its test and training set performance are consistent with R2 score of 0.90.
-8. RECOMMENDATION
+# RECOMMENDATION
 1.	We can improve our model by collecting more data around the sales prices of houses in Washington DC and other states of the US to expand our data solution to all the states and getting more reliable results.
 2.	We can make our model perform even more effective by better hyperparameter tuning and ensembling.
 3.	We can add more features to the model such as neighborhood house sales prices, income of neighborhood, population, infrastructure information like Schools, Hospitals, Transport connectivity, Lakes, shopping complexes, multiplexes etc.
