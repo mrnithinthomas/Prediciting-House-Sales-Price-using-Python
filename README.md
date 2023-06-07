@@ -25,7 +25,7 @@ From the above figure, we can see that the average property price in the cities 
 
 4.2 Scatter Plot between Sq. ft. Living and Price
 
-![Work Flow](Images/Picture12.png)
+![Work Flow](Images/Picture2.png)
 
 From the scatter plot, it’s clear that price of the house increases as the sq.ft. living increases and also it is evident from the plot that most of the houses have sq.ft. living area between 2000 and 5000 sq.ft.
 
@@ -38,7 +38,7 @@ From the above plot, we can see that as the grade of the property increases, the
 4.4 Correlation Matrix
 The strength and linear connection of all independent factors with the dependent variable is investigated using a correlation matrix. 
 
-![Work Flow](Images/Picture4.png)
+![Work Flow](Images/Picture4.jpg)
 
 From the above correlation Matrix, it’s found that dependent variable “Price” has high correlation (0.4 or high) with square feet living, Bathrooms, Grade, Square feet above etc.
 
