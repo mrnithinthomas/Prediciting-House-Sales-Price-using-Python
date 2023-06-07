@@ -1,7 +1,7 @@
 # Platform for Prediciting House Sales Price in USA
 Apex Realty is a web based online real-estate platform that provides instant price valuation of properties in the United States using the features of the property provided as inputs by customers through the platform. Initially as a startup company, we are planning to build regression models which can predict the property sales prices in Washington DC at the initial stage, and we will update the model which will cover other states for expanding our business model. The historic data was collected from Kaggle data source named as “KC_Housesales_Data” which provide necessary data for houses sold in Washington DC over a period of 2 years. Data Cleansing, pre-processing and transformation were performed before the model preparation.  We performed exploratory data analysis to elicit meaningful insight from the dataset that can help our business in making better decisions and to explore the dataset to understand about any trends, correlations, or patterns among variables. For building the predictor model we created a hist gradient boosting model, which is a tree-based model and Elastic Net linear regression model. We compared these models to determine which one is performing the best to predict the sales prices of houses, and we concluded that Hist-gradient boost model was most effective in predicting the sales price of houses, with an R2 score of 0.90. However, we can improve the model in future by collecting more data and incorporating supplementary features such as income level of the community, infrastructure availability, population density, cost of living, average sales price of neighborhood houses etc. 
 
-#PROBLEM DESCRIPTION 
+# PROBLEM DESCRIPTION 
 1. Business Goal
 Our business focus on building a user-friendly Platform where clients can get quick and fair evaluations for properties as per the features of the houses. Our immediate goal is to build a model which can accurately predict the house prices in Washington DC and later on, expand the model to the other states of United States.
 2. Data Analysis Goal
@@ -15,23 +15,36 @@ The data contains 21 variables and 21597 observations. The various input variabl
 
 The dependent variable in the dataset is price of property, which is an integer type. In this model, we focus to predict the price using other input variables. The data collected of the time period 2014 - 2015.
 
-4. EXPLORATORY DATA ANALYSIS  
+# EXPLORATORY DATA ANALYSIS  
 When we conduct an exploratory data analysis and we used Tableau, Power BI, and python to analyze the dataset and to plot main graphs between various variables.
 4.1 Average Price of Properties as per cities in Washington D.C
 
+![Work Flow](Images/Picture1.png)
+
 From the above figure, we can see that the average property price in the cities of Medina and Mercer Island are high compared to other cities, with $2.16 million and $1.19 million respectively.
+
 4.2 Scatter Plot between Sq. ft. Living and Price
 
+![Work Flow](Images/Picture12.png)
+
 From the scatter plot, it’s clear that price of the house increases as the sq.ft. living increases and also it is evident from the plot that most of the houses have sq.ft. living area between 2000 and 5000 sq.ft.
+
 4.3 Box Plot between number of Bedrooms v/s Price
 
+![Work Flow](Images/Picture3.png)
+
 From the above plot, we can see that as the grade of the property increases, the prices become exceptionally high. Higher the grade, better the property and hence the prices.
+
 4.4 Correlation Matrix
 The strength and linear connection of all independent factors with the dependent variable is investigated using a correlation matrix. 
+
+![Work Flow](Images/Picture4.png)
 
 From the above correlation Matrix, it’s found that dependent variable “Price” has high correlation (0.4 or high) with square feet living, Bathrooms, Grade, Square feet above etc.
 
 4.5 Heat-Map of Price with Respect to Cities
+
+![Work Flow](Images/Picture5.png)
 
 The above heat map, the average sales price for houses is high near to the Seattle region of Washington D.C which also the largest city in Washington D.C.
 
