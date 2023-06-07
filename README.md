@@ -9,7 +9,8 @@ Building an effective and reliable model which can predict sale price of propert
 3. Data Description
 We collected the data from “Kaggle datasets” named as “KC_Housesales_Data”. The link of the data: KC_Housesales_Data | Kaggle
 4. Dimensions and Overview of the Data
-The data contains 21 variables and 21597 observations. The various input variables or independent variables are given in table below. 
+The data contains 21 variables and 21597 observations. The various input variables or independent variables are given in table below.
+
 ![Variables](Images/Variables.png)
 
 The dependent variable in the dataset is price of property, which is an integer type. In this model, we focus to predict the price using other input variables. The data collected of the time period 2014 - 2015.
